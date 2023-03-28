@@ -47,5 +47,5 @@ $report_client_request = new ReportClient($CLIENT_ID, $CLIENT_SECRET, $REFRESH_T
 
 $uri = $report_client_request->getURI($EMAIL_ID, $DB_NAME, $TABLE_NAME);
 $view_url = $report_client_request->getViewUrl($uri);
-// $_SESSION['$view_url']=0;
+$_SESSION['$view_url']=$view_url;
 ?>
