@@ -15,7 +15,7 @@ if(isset($_SESSION['code'])){
     header('Location: '.$code_url);
 }else{
     $code_url = $accounts_url . "/oauth/v2/auth?";
-$post_data = "scope=" . $scope . "&client_id=" . $ClienID . "&state=testing&response_type=code&redirect_uri=" . $Redirect_URI . "&access_type=offline&prompt=consent";
+$post_data = "scope=" . $scope . "&client_id=" . $ClienID . "&state=testing&response_type=code&redirect_uri=" . $Redirect_URI . "&access_type=offline";
 $code_url=$code_url.$post_data;
 header('Location: '.$code_url);
 
