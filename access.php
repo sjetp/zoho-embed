@@ -31,7 +31,7 @@ if ($code) {
     }
 
 }
-var_dump($_SESSION);
+var_dump($response);
 ?>
 <?php
 //STEP 3: Generate View URL

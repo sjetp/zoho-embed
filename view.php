@@ -11,7 +11,7 @@ session_start();
 <?php
 // Generate Code
 if(isset($_SESSION['code'])){
-    $code_url="report.php";
+    $code_url="index.php";
     header('Location: '.$code_url);
 }else{
     $code_url = $accounts_url . "/oauth/v2/auth?";
