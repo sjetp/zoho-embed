@@ -6,7 +6,7 @@ if ($_GET) {
 }
 ?>
 <?php
-if (is_null($_SESSION['refresh_token'])) {
+if (is_null($refresh_token)) {
     // Generate Refresh Token
     $Token_url = $accounts_url . "/oauth/v2/token?";
     $post_data = "code=" . $_SESSION['code'] . "&client_id=" . $ClienID . "&client_secret=" . $ClienSecret . "&redirect_uri=" . $Redirect_URI . "&grant_type=authorization_code";
