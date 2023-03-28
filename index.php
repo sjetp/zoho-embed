@@ -1,4 +1,3 @@
-<?php include('session.php'); ?>
 <?php require_once('access.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
