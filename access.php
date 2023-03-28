@@ -1,13 +1,12 @@
 <?php include('session.php'); ?>
 <?php
 // Generate Code
-if ($_GET) {
+if ($_GET && !isset($_SESSION['code'])) {
     $_SESSION['code']= $_GET['code']; // from Authorize
-    $code=TRUE;
 }
 ?>
 <?php
-if ($code) {
+if (!isset($_SESSION['refresh_token'])) {
     $code=$_SESSION['code'];
     // Generate Refresh Token
     $Token_url = $accounts_url . "/oauth/v2/token?";
@@ -24,29 +23,29 @@ if ($code) {
     $response = json_decode($response);
 
     foreach ($response as $key => $value) {
-        if ($key == 'refresh_token'){}
+        if ($key == 'refresh_token')
             $_SESSION['refresh_token']=$value;
         if ($key == 'access_token')
             $_SESSION['access_token']=$value;
     }
 
 }
-var_dump($response);
+// var_dump($response);
 ?>
 <?php
 //STEP 3: Generate View URL
-// require 'ReportClient.php';
+require 'ReportClient.php';
 
-// $EMAIL_ID = "rohit@lets-viz.com"; //Email Address
-// $DB_NAME = "Sales Dashboard"; //Workspace Name
-// $TABLE_NAME = "Sales Dashboard";
-// $CLIENT_ID = $ClienID;
-// $CLIENT_SECRET = $ClienSecret;
-// $REFRESH_TOKEN = $_SESSION['refresh_token']; // Get From Step 2
+$EMAIL_ID = "rohit@lets-viz.com"; //Email Address
+$DB_NAME = "Sales Dashboard"; //Workspace Name
+$TABLE_NAME = "Sales Dashboard";
+$CLIENT_ID = $ClienID;
+$CLIENT_SECRET = $ClienSecret;
+$REFRESH_TOKEN = $_SESSION['refresh_token']; // Get From Step 2
 
-// $report_client_request = new ReportClient($CLIENT_ID, $CLIENT_SECRET, $REFRESH_TOKEN);
+$report_client_request = new ReportClient($CLIENT_ID, $CLIENT_SECRET, $REFRESH_TOKEN);
 
-// $uri = $report_client_request->getURI($EMAIL_ID, $DB_NAME, $TABLE_NAME);
-// $view_url = $report_client_request->getViewUrl($uri);
-$_SESSION['$view_url']=0;
+$uri = $report_client_request->getURI($EMAIL_ID, $DB_NAME, $TABLE_NAME);
+$view_url = $report_client_request->getViewUrl($uri);
+// $_SESSION['$view_url']=0;
 ?>
