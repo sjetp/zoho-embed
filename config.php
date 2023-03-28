@@ -18,10 +18,10 @@ $scope = "ZohoAnalytics.embed.read";
 // when creating App
 $ClienID = "1000.HM3SUUQK7M3NKTZB5PYPHL3OH0PGMS";
 $ClienSecret = "dd28166ee4ac89b3338f48be649892a8342983daee";
-
-$Redirect_URI = "https://3.110.176.92/report.php";
-
 $code=NULL;
+
+// $Redirect_URI = "https://3.110.176.92/index.php";
+
 $access_token = NULL;
 $refresh_token = NULL;
 ?>

@@ -2,34 +2,29 @@
 require('config.php');
 ?>
 <?php
-// Generate Code
-if ($_GET) {
-    $code = $_GET['code']; // from Authorize
+if (is_null($refresh_token)) {
+    // Generate Refresh Token
+    $Token_url = $accounts_url . "/oauth/v2/token?";
+    $post_data = "code=" . $code . "&client_id=" . $ClienID . "&client_secret=" . $ClienSecret . "&redirect_uri=" . $Redirect_URI . "&grant_type=authorization_code";
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $Token_url);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+    $response = curl_exec($ch);
+    curl_close($ch);
+
+    $response = json_decode($response);
+
+    foreach ($response as $key => $value) {
+        if ($key == 'refresh_token')
+            $refresh_token = $value;
+        if ($key == 'access_token')
+            $access_token = $value;
+    }
 }
-?>
-<?php
-// Generate Refresh Token
-$Token_url = $accounts_url . "/oauth/v2/token?";
-$post_data = "code=" . $code . "&client_id=" . $ClienID . "&client_secret=" . $ClienSecret . "&redirect_uri=" . $Redirect_URI . "&grant_type=authorization_code";
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, $Token_url);
-curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-$response = curl_exec($ch);
-curl_close($ch);
-
-$response = json_decode($response);
-
-$access_token = 0;
-$refresh_token = 0;
-foreach ($response as $key => $value) {
-    if ($key == 'refresh_token')
-        $refresh_token = $value;
-    if ($key == 'access_token')
-        $access_token = $value;
-}
+echo $refresh_token;
 ?>
 <?php
 //STEP 3: Generate View URL
