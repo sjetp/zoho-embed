@@ -1,12 +1,12 @@
 <?php
 // Generate Code
-if ($_GET && !isset($_SESSION['code'])) {
+if ($_GET) {
     $code= $_GET['code']; // from Authorize
     $_SESSION['code']=$code;
 }
 ?>
 <?php
-if (!isset($_SESSION['refresh_token'])) {
+if (is_null($_SESSION['refresh_token'])) {
     // Generate Refresh Token
     $Token_url = $accounts_url . "/oauth/v2/token?";
     $post_data = "code=" . $_SESSION['code'] . "&client_id=" . $ClienID . "&client_secret=" . $ClienSecret . "&redirect_uri=" . $Redirect_URI . "&grant_type=authorization_code";
@@ -27,6 +27,7 @@ if (!isset($_SESSION['refresh_token'])) {
         if ($key == 'access_token')
             $_SESSION['access_token']=$value;
     }
+
 }
 ?>
 <?php
