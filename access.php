@@ -40,7 +40,7 @@ $DB_NAME = "Sales Dashboard"; //Workspace Name
 $TABLE_NAME = "Sales Dashboard";
 $CLIENT_ID = $ClienID;
 $CLIENT_SECRET = $ClienSecret;
-$REFRESH_TOKEN = $_SESSION['access_token']; // Get From Step 2
+$REFRESH_TOKEN = $_SESSION['refresh_token']; // Get From Step 2
 
 $report_client_request = new ReportClient($CLIENT_ID, $CLIENT_SECRET, $REFRESH_TOKEN);
 
