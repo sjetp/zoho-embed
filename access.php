@@ -30,7 +30,6 @@ if (!isset($_SESSION['refresh_token'])) {
     }
 
 }
-var_dump($response);
 ?>
 <?php
 //STEP 3: Generate View URL
