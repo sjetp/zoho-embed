@@ -30,22 +30,22 @@ if (!isset($_SESSION['refresh_token'])) {
     }
 
 }
-// var_dump($response);
+var_dump($response);
 ?>
 <?php
 //STEP 3: Generate View URL
-require 'ReportClient.php';
+// require 'ReportClient.php';
 
-$EMAIL_ID = "rohit@lets-viz.com"; //Email Address
-$DB_NAME = "Sales Dashboard"; //Workspace Name
-$TABLE_NAME = "Sales Dashboard";
-$CLIENT_ID = $ClienID;
-$CLIENT_SECRET = $ClienSecret;
-$REFRESH_TOKEN = $_SESSION['refresh_token']; // Get From Step 2
+// $EMAIL_ID = "rohit@lets-viz.com"; //Email Address
+// $DB_NAME = "Sales Dashboard"; //Workspace Name
+// $TABLE_NAME = "Sales Dashboard";
+// $CLIENT_ID = $ClienID;
+// $CLIENT_SECRET = $ClienSecret;
+// $REFRESH_TOKEN = $_SESSION['refresh_token']; // Get From Step 2
 
-$report_client_request = new ReportClient($CLIENT_ID, $CLIENT_SECRET, $REFRESH_TOKEN);
+// $report_client_request = new ReportClient($CLIENT_ID, $CLIENT_SECRET, $REFRESH_TOKEN);
 
-$uri = $report_client_request->getURI($EMAIL_ID, $DB_NAME, $TABLE_NAME);
-$view_url = $report_client_request->getViewUrl($uri);
-$_SESSION['$view_url']=$view_url;
+// $uri = $report_client_request->getURI($EMAIL_ID, $DB_NAME, $TABLE_NAME);
+// $view_url = $report_client_request->getViewUrl($uri);
+$_SESSION['$view_url']=0;
 ?>
