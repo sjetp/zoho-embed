@@ -1,4 +1,3 @@
-<?php // include('session.php'); ?>
 <?php require_once('access.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-<iframe frameborder=0 width="100%" height="600" src="<?php echo $view_url;?>"></iframe>
+<iframe frameborder=0 width="100%" height="600" src="<?php echo $_SESSION['$view_url'];?>"></iframe>
 </body>
 </html>

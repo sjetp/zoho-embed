@@ -19,7 +19,7 @@ $scope = "ZohoAnalytics.embed.read";
 $ClienID = "1000.HM3SUUQK7M3NKTZB5PYPHL3OH0PGMS";
 $ClienSecret = "dd28166ee4ac89b3338f48be649892a8342983daee";
 
-$Redirect_URI = "https://3.110.176.92/report.php";
+$Redirect_URI = "https://3.110.176.92/zoho-embed/index.php";
 
 $code=NULL;
 $access_token = NULL;
