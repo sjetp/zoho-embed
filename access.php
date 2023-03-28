@@ -2,16 +2,16 @@
 <?php
 // Generate Code
 if ($_GET) {
-    $code= $_GET['code']; // from Authorize
-    $_SESSION['code']=$code;
+    $_SESSION['code']= $_GET['code']; // from Authorize
     $code=TRUE;
 }
 ?>
 <?php
 if ($code) {
+    $code=$_SESSION['code'];
     // Generate Refresh Token
     $Token_url = $accounts_url . "/oauth/v2/token?";
-    $post_data = "code=" . $_SESSION['code'] . "&client_id=" . $ClienID . "&client_secret=" . $ClienSecret . "&redirect_uri=" . $Redirect_URI . "&grant_type=authorization_code";
+    $post_data = "code=" . $code . "&client_id=" . $ClienID . "&client_secret=" . $ClienSecret . "&redirect_uri=" . $Redirect_URI . "&grant_type=authorization_code";
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $Token_url);
     curl_setopt($ch, CURLOPT_POST, 1);
