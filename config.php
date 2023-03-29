@@ -16,9 +16,9 @@ $accounts_url = "https://accounts.zoho.in";
 
 $scope = "ZohoAnalytics.embed.read";
 // when creating App
-$ClienID = "1000.HM3SUUQK7M3NKTZB5PYPHL3OH0PGMS";
-$ClienSecret = "dd28166ee4ac89b3338f48be649892a8342983daee";
-$code=NULL;
+$ClienID = "1000.RH4GQ4A9GWGN8I5KYMYBTCQGXP151O";
+$ClienSecret = "74a67c24303a0b5a590a8d64b98359b70a9ee9041d";
+$code="1000.dc2536115c3452da0171e6a69202b04d.71ae7a4d455159ee6b9462cbf8b73966";
 
 // $Redirect_URI = "https://3.110.176.92/index.php";
 
