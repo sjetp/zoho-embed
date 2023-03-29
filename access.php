@@ -5,7 +5,7 @@ require('config.php');
 if (is_null($refresh_token)) {
     // Generate Refresh Token
     $Token_url = $accounts_url . "/oauth/v2/token?";
-    $post_data = "code=" . $code . "&client_id=" . $ClienID . "&client_secret=" . $ClienSecret . "&redirect_uri=" . $Redirect_URI . "&grant_type=authorization_code";
+    $post_data = "code=" . $code . "&client_id=" . $ClienID . "&client_secret=" . $ClienSecret . "&grant_type=authorization_code";
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $Token_url);
     curl_setopt($ch, CURLOPT_POST, 1);
